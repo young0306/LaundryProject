@@ -7,7 +7,10 @@ import javax.swing.JOptionPane;
  */
 
 public class NewFrameMain extends javax.swing.JFrame {
+    // loginFacade, 로그인 기능을 수행하는 객체
     private LoginFacade loginFacade;
+    
+    // NewFrameMain 생성자에서 loginFacade 객체를 초기화하고 컴포넌트를 초기화
     public NewFrameMain() {
         initComponents();
         loginFacade = new LoginFacade();
@@ -40,7 +43,7 @@ public class NewFrameMain extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("로그아웃");
+        jButton2.setText("종료");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -85,7 +88,7 @@ public class NewFrameMain extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,15 +114,22 @@ public class NewFrameMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // jButton1ActionPerformed 함수는 로그인 버튼이 클릭 시 호출
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String ID = jTextField1.getText();
         String Password = jTextField2.getText();
-        loginFacade.login(ID, Password);
+        if (loginFacade.login(ID, Password)) {
+        // loginFacade의 login 함수를 호출해 로그인을 시도
+        // 로그인 성공 시 현재 프레임을 닫는다..
+        this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    // jButton2ActionPerformed 함수는 로그인 버튼이 클릭 시 호출
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        loginFacade.logout();
+        // loginFacade의 exitstart 함수를 호출해 종료 시도
+        loginFacade.exitstart();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
