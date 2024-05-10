@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author hesed
  */
+    //실제 로그인이 진행되는 함수
 public class RealLogin implements Login{
     private int loginFail = 0;
     private String UserID = "user";
