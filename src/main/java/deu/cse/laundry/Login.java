@@ -9,6 +9,7 @@ package deu.cse.laundry;
  *
  * @author hesed
  */
+// Login 인터페이스, 로그인 기능을 정의
 public interface Login {
     boolean login(String ID, String Password);
 }
